@@ -13,6 +13,7 @@ import {
 } from 'redux-persist';
 import { apiSlice } from './api/apiSlice';
 import { rootReducer } from './root-reducer';
+import { rtkQueryErrorLogger } from './middleware';
 
 
 const persistConfig = getPersistConfig({
@@ -32,7 +33,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(apiSlice.middleware),
+    }).concat(apiSlice.middleware, rtkQueryErrorLogger),
   devTools: process.env.NODE_ENV !== 'production',
 });
 

@@ -8,6 +8,7 @@ import './styles/ant_override.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  console.log('App');
   return (
     <div>
       <Helmet>
